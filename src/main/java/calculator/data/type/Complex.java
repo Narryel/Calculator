@@ -1,6 +1,6 @@
 package calculator.data.type;
 
-public class Complex implements Calculation<Complex> {
+public class Complex implements Calculation{
     /**
      * действительная часть комплексного числа
      */
@@ -23,24 +23,25 @@ public class Complex implements Calculation<Complex> {
     public double getIm() {
         return im;
     }
-
-    public void setRe(double re) {
-        this.re = re;
-    }
-
-    public void setIm(double im) {
-        this.im = im;
-    }
+//
+//    public void setRe(double re) {
+//        this.re = re;
+//    }
+//
+//    public void setIm(double im) {
+//        this.im = im;
+//    }
 
     /**
      * Метод сложения комплексного числа на константу.
      *
-     * @param complex - комплексное число, с которым будем складывать
+     * @param calculation - комплексное число, с которым будем складывать
      * @return - Возвращаем новый обьект класса datatype.Complex
      */
 
     @Override
-    public Complex add(Complex complex) {
+    public Complex add(Calculation calculation) {
+        Complex complex = (Complex)calculation;
         return new Complex(this.re + complex.getRe(), this.im + complex.getIm());
     }
 
@@ -69,11 +70,12 @@ public class Complex implements Calculation<Complex> {
     /**
      * Метод, перемножающий текущее комплексное число на другое комплексное число
      *
-     * @param complex - комплексное число, на которое будем умножать
+     * @param calculation - комплексное число, на которое будем умножать
      * @return - новый обьект класса datatype.Complex
      */
     @Override
-    public Complex multiply(Complex complex) {
+    public Complex multiply(Calculation calculation) {
+        Complex complex = (Complex)calculation;
         return new Complex((this.re * complex.getRe()) - (this.im * complex.getIm()), (this.re * complex.getIm() + this.im * complex.getRe()));
     }
 
