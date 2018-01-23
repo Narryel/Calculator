@@ -2,7 +2,7 @@ package calculator.data.type;
 
 import java.util.Arrays;
 
-public class Vector implements Calculation<Vector> {
+public class Vector implements Calculation {
     /**
      * действительная часть комплексного числа
      */
@@ -39,7 +39,7 @@ public class Vector implements Calculation<Vector> {
     }
 
     @Override
-    public Vector add(Vector vector) {
+    public Vector add(Calculation calculation) {
         return null;
     }
 
@@ -54,7 +54,7 @@ public class Vector implements Calculation<Vector> {
     }
 
     @Override
-    public Vector multiply(Vector vector) {
+    public Vector multiply(Calculation calculation) {
         return null;
     }
 

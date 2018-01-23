@@ -2,7 +2,7 @@ package calculator.data.type;
 
 import java.util.Arrays;
 
-public class Matrix implements Calculation<Matrix> {
+public class Matrix implements Calculation {
 private int dimension;
 private double[][] matrix;
 
@@ -50,7 +50,8 @@ private double[][] matrix;
     }
 
     @Override
-    public Matrix add(Matrix o) {
+    public Matrix add(Calculation calculation) {
+        Matrix o = (Matrix)calculation;
         double newmatrix[][] = o.getMatrix();
         double resultmatrix[][] = new double[matrix.length][matrix[0].length];
 
@@ -90,7 +91,9 @@ private double[][] matrix;
     }
 
     @Override
-    public Matrix multiply(Matrix o) {
+    public Matrix multiply(Calculation calculation) {
+        Matrix o = (Matrix)calculation;
+
         double[][] result = new double[matrix.length][o.getMatrix()[0].length];
 
         if (this.matrix[0].length != o.getMatrix().length) {

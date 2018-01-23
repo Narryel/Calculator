@@ -6,7 +6,7 @@ import calculator.input.scan.Parser;
 import calculator.input.scan.VectorParser;
 
 public class ParserFactory {
-    public Parser getParserInstance(String string){
+    public static Parser getParserInstance(String string){
         Parser parser = null;
         if (string.equals("MATRIXPARSER")){
             parser = new MatrixParser();
@@ -16,7 +16,7 @@ public class ParserFactory {
             parser = new VectorParser();
         }
 
-        if (string.equals("MATRIXPARSER")){
+        if (string.equals("COMPLEXPARSER")){
             parser = new ComplexParser();
         }
         return parser;
